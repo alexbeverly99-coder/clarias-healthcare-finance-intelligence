@@ -1,44 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import { AlertTriangle, Filter, ShieldCheck, Wallet, Activity } from "lucide-react";
-import { PageHeader } from "@/components/clarias/page-header";
-import { KpiCard } from "@/components/clarias/kpi-card";
-import { useTenant } from "@/lib/tenant-context";
-import {
-  reconciliationByTenant,
-  formatCurrency,
-  formatPct,
-  type ReconciliationLine,
-} from "@/lib/mock-data";
-import { cn } from "@/lib/utils";
+import ClariasDashboard from "@/components/clarias/clarias-dashboard";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Reconciliation Intelligence · Clarias" },
+      { title: "Clarias — Healthcare Financial Intelligence" },
       {
         name: "description",
         content:
-          "Budget vs actual vs predicted spend by GL line, with variance flagging across cost and profit centers.",
+          "Six intelligence engines for healthcare finance: reconciliation, causal spend, budget/intent alignment, vendor benchmarking, forecasting, and department self-service.",
       },
-      { property: "og:title", content: "Reconciliation Intelligence · Clarias" },
+      { property: "og:title", content: "Clarias — Healthcare Financial Intelligence" },
       {
         property: "og:description",
-        content: "Budget vs actual vs predicted spend with variance flagging by GL line.",
+        content:
+          "Multi-tenant financial intelligence across GL, AP, contracts and budgets.",
       },
     ],
   }),
-  component: ReconciliationPage,
+  component: ClariasDashboard,
 });
 
 const statusStyle: Record<ReconciliationLine["status"], string> = {

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/clarias/page-header";
 import { useTenant } from "@/lib/tenant-context";
-import { alignmentByTenant, formatCurrency, formatPct } from "@/lib/real-data";
+import { alignmentByTenant, formatCurrency, formatPct } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/alignment")({

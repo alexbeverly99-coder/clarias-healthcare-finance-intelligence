@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import { PageHeader } from "@/components/clarias/page-header";
 import { useTenant } from "@/lib/tenant-context";
-import { causalDriversByTenant, reconciliationByTenant, formatCurrency } from "@/lib/real-data";
+import { causalDriversByTenant, reconciliationByTenant, formatCurrency } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/causal")({

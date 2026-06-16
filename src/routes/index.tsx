@@ -19,7 +19,7 @@ import {
   formatCurrency,
   formatPct,
   type ReconciliationLine,
-} from "@/lib/real-data";
+} from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({

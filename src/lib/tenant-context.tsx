@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import { tenants, type TenantId, type Tenant, getTenant } from "./real-data";
+import { tenants, type TenantId, type Tenant, getTenant } from "./mock-data";
 
 interface TenantCtx {
   tenantId: TenantId;

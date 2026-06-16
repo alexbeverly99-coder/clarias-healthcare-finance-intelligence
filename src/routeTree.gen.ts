@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VendorsRouteImport } from './routes/vendors'
+import { Route as ForecastingRouteImport } from './routes/forecasting'
+import { Route as DepartmentsRouteImport } from './routes/departments'
+import { Route as CausalRouteImport } from './routes/causal'
+import { Route as AlignmentRouteImport } from './routes/alignment'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VendorsRoute = VendorsRouteImport.update({
+  id: '/vendors',
+  path: '/vendors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForecastingRoute = ForecastingRouteImport.update({
+  id: '/forecasting',
+  path: '/forecasting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DepartmentsRoute = DepartmentsRouteImport.update({
+  id: '/departments',
+  path: '/departments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CausalRoute = CausalRouteImport.update({
+  id: '/causal',
+  path: '/causal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlignmentRoute = AlignmentRouteImport.update({
+  id: '/alignment',
+  path: '/alignment',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alignment': typeof AlignmentRoute
+  '/causal': typeof CausalRoute
+  '/departments': typeof DepartmentsRoute
+  '/forecasting': typeof ForecastingRoute
+  '/vendors': typeof VendorsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alignment': typeof AlignmentRoute
+  '/causal': typeof CausalRoute
+  '/departments': typeof DepartmentsRoute
+  '/forecasting': typeof ForecastingRoute
+  '/vendors': typeof VendorsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alignment': typeof AlignmentRoute
+  '/causal': typeof CausalRoute
+  '/departments': typeof DepartmentsRoute
+  '/forecasting': typeof ForecastingRoute
+  '/vendors': typeof VendorsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alignment'
+    | '/causal'
+    | '/departments'
+    | '/forecasting'
+    | '/vendors'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alignment'
+    | '/causal'
+    | '/departments'
+    | '/forecasting'
+    | '/vendors'
+  id:
+    | '__root__'
+    | '/'
+    | '/alignment'
+    | '/causal'
+    | '/departments'
+    | '/forecasting'
+    | '/vendors'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlignmentRoute: typeof AlignmentRoute
+  CausalRoute: typeof CausalRoute
+  DepartmentsRoute: typeof DepartmentsRoute
+  ForecastingRoute: typeof ForecastingRoute
+  VendorsRoute: typeof VendorsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vendors': {
+      id: '/vendors'
+      path: '/vendors'
+      fullPath: '/vendors'
+      preLoaderRoute: typeof VendorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forecasting': {
+      id: '/forecasting'
+      path: '/forecasting'
+      fullPath: '/forecasting'
+      preLoaderRoute: typeof ForecastingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/departments': {
+      id: '/departments'
+      path: '/departments'
+      fullPath: '/departments'
+      preLoaderRoute: typeof DepartmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/causal': {
+      id: '/causal'
+      path: '/causal'
+      fullPath: '/causal'
+      preLoaderRoute: typeof CausalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alignment': {
+      id: '/alignment'
+      path: '/alignment'
+      fullPath: '/alignment'
+      preLoaderRoute: typeof AlignmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +157,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlignmentRoute: AlignmentRoute,
+  CausalRoute: CausalRoute,
+  DepartmentsRoute: DepartmentsRoute,
+  ForecastingRoute: ForecastingRoute,
+  VendorsRoute: VendorsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

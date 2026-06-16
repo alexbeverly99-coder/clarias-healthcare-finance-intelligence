@@ -11,10 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { TenantProvider } from "../lib/tenant-context";
-import { SidebarProvider } from "../components/ui/sidebar";
-import { AppSidebar } from "../components/clarias/app-sidebar";
-import { Topbar } from "../components/clarias/topbar";
 
 function NotFoundComponent() {
   return (
@@ -142,19 +138,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TenantProvider>
-        <SidebarProvider>
-          <div className="flex min-h-screen w-full bg-background text-foreground">
-            <AppSidebar />
-            <div className="flex flex-1 flex-col min-w-0">
-              <Topbar />
-              <main className="flex-1 p-6">
-                <Outlet />
-              </main>
-            </div>
-          </div>
-        </SidebarProvider>
-      </TenantProvider>
+      <Outlet />
     </QueryClientProvider>
   );
 }

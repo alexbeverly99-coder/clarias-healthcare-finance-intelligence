@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import { PageHeader } from "@/components/clarias/page-header";
 import { useTenant } from "@/lib/tenant-context";
-import { departmentsByTenant, formatCurrency, formatPct } from "@/lib/real-data";
+import { departmentsByTenant, formatCurrency, formatPct } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/departments")({

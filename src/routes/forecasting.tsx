@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CalendarClock, AlertTriangle } from "lucide-react";
 import { PageHeader } from "@/components/clarias/page-header";
 import { useTenant } from "@/lib/tenant-context";
-import { renewalsByTenant, formatCurrency } from "@/lib/real-data";
+import { renewalsByTenant, formatCurrency } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/forecasting")({
